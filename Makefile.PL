@@ -1,0 +1,13 @@
+use strict;
+use inc::Module::Install;
+name 'App-SmokeBox-UI';
+author 'Chris Williams <chris@bingosnet.co.uk>';
+license 'perl';
+perl_version '5.006';
+abstract_from 'lib/App/SmokeBox/UI.pm';
+version_from 'lib/App/SmokeBox/UI.pm';
+build_requires 'Test::More' => 0.47;
+requires 'POE' => 1.005;
+requires 'POE::Component::SmokeBox' => 0.24;
+eval "auto_set_repository";
+WriteAll();
