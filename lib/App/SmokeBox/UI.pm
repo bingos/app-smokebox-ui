@@ -4,17 +4,13 @@ use strict;
 use warnings;
 use vars qw($VERSION);
 
-$VERSION = '0.02';
+$VERSION ='0.02';
 
-use MooseX::POE::Role;
+use Moose;
 
-has smokebox => ( 
-  is       => 'ro',
-  isa      => 'POE::Component::SmokeBox',
-  required => 1,
-);  
+with qw(App::SmokeBox::UI::Role);
 
-no MooseX::POE::Role;
+no Moose;
 
 'Smoking!';
 
