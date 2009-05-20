@@ -15,6 +15,19 @@ has smokebox => (
   handles  => [ qw(queues add_smoker del_smoker submit) ],
 );  
 
+sub START {
+  my ($kernel,$self) = @_[KERNEL,OBJECT];
+  $kernel->refcount_increment( $self->get_session_id, __PACKAGE__ );
+  return;
+}
+
+event shutdown => sub {
+  my ($kernel,$self) = @_[KERNEL,OBJECT];
+  $kernel->refcount_decrement( $self->get_session_id, __PACKAGE__ );
+  $kernel->post( $self->smokebox->session_id, 'shutdown' );
+  return;
+};
+
 no MooseX::POE::Role;
 
 'Smoking!';

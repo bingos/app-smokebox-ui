@@ -9,7 +9,7 @@ abstract_from 'lib/App/SmokeBox/UI.pm';
 version_from 'lib/App/SmokeBox/UI.pm';
 build_requires 'Test::More' => 0.47;
 requires 'POE' => 1.005;
-requires 'POE::Component::SmokeBox' => 0.24;
+requires 'POE::Component::SmokeBox' => 0.26;
 requires 'Moose' => 0.79;
 requires 'MooseX::POE' => 0.202;
 githubmeta;

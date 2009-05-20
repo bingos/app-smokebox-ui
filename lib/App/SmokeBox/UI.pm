@@ -6,11 +6,15 @@ use vars qw($VERSION);
 
 $VERSION ='0.02';
 
-use Moose;
+use MooseX::POE;
 
 with qw(App::SmokeBox::UI::Role);
 
-no Moose;
+sub spawn {
+  shift->new(@_);
+}
+
+no MooseX::POE;
 
 'Smoking!';
 
